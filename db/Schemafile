@@ -1,1 +1,2 @@
 require 'schemas/customers.schema'
+require 'schemas/frankfurts.schema'
