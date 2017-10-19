@@ -1,0 +1,4 @@
+create_table :customers do |t|
+
+  t.timestamps
+end
