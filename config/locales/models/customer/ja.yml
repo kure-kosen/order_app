@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      customer: 客
+    attributes:
+      customer:
+
