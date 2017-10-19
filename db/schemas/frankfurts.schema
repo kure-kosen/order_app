@@ -1,0 +1,11 @@
+create_table :frankfurts do |t|
+  t.integer :order_id, null: false
+  t.boolean :ketchup, null: false, default: false
+  t.boolean :mustard, null: false, default: false
+
+  t.timestamps
+end
+
+add_foreign_key :frankfurts, :customers
+
+add_index :frankfurts, :order_id
