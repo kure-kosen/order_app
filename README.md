@@ -6,6 +6,7 @@ ordering app for kohsensai
 
 ```
 rails webpacker:install
+yarn add babel-preset-vue-app --dev
 ```
 
 LICENSE: MIT
