@@ -14,6 +14,8 @@
     <bill></bill>
     <el-button @click='create'>create</el-button>
   </div>
+    <que></que>
+  </div>
 </template>
 
 <script>
