@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <el-button>Default Button</el-button>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data: function () {
     return {
-      message: "Hello ChanYou!!!"
+      message: "Hello Vue!"
     }
   }
 }
