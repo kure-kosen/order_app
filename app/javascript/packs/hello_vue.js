@@ -10,12 +10,16 @@ import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-default/index.css'
 import App from '../app.vue'
+import Item from '../components/item.vue'
+import Bill from '../components/bill.vue'
 
 Vue.use(ElementUI, {locale})
+Vue.component('item', Item)
+Vue.component('bill', Bill)
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('hello'))
-  const app = new Vue(App).$mount('hello')
+  document.body.appendChild(document.createElement('app'))
+  const app = new Vue(App).$mount('app')
 
   console.log(app)
 })
