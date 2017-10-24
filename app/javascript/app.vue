@@ -1,6 +1,17 @@
 <template>
   <div id="app">
-    <el-button>Default Button</el-button>
+    <ul>
+      <li>
+        none<item></item> $ 100
+      </li>
+      <li>
+        ketchup<item></item> $ 100
+      </li>
+      <li>
+        mustard<item></item> $ 100
+      </li>
+    </ul>
+    <bill></bill>
   </div>
 </template>
 
@@ -8,7 +19,6 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
     }
   }
 }
