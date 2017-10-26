@@ -1,2 +1,2 @@
-alias rid="ridgepole -c config.yml --apply --dry-run -f db/Schemafile"
-alias rida="ridgepole -c config.yml --apply -f db/Schemafile"
+alias rid="./bin/bundle exec ridgepole -c config/database.yml -E development --apply --dry-run -f db/Schemafile"
+alias rida="./bin/bundle exec ridgepole -c config/database.yml -E development --apply -f db/Schemafile"
