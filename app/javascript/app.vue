@@ -15,9 +15,8 @@
       </li>
     </ul>
     <bill></bill>
-    <el-button @click="submit">submit</el-button>
+    <el-button @click="submit" :disabled="submitDisabled">submit</el-button>
     <el-button @click="create">create</el-button>
-    <el-button @click="get">get</el-button>
     <que></que>
   </div>
 </template>
@@ -30,6 +29,11 @@ export default {
       ketchup: 0,
       mustard: 0,
       both: 0
+    }
+  },
+  computed: {
+    submitDisabled: function() {
+      return !(this.none || this.ketchup || this.mustard || this.both)
     }
   },
   methods: {
@@ -55,14 +59,6 @@ export default {
       }).then((response) => {
         console.log(response.data)
       })
-    },
-    get: function() {
-      this.axios.get('http://localhost:5000/customers').then((response) => {
-        console.log(response.data)
-      })
-    },
-    send: function(val) {
-      this.$socket.send(data)
     },
     create: function() {
       this.orderChannel = this.$cable.subscriptions.create(
