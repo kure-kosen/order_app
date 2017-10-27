@@ -1,9 +1,10 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[done]
 
-  def show
+  def index
     @customers = Customer.all
-    ActionCable.server.broadcast 'order_channel', message: 'created'
+
+    render json: @customers
   end
 
   def create
