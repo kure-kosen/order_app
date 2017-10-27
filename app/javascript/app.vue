@@ -12,15 +12,23 @@
       </li>
     </ul>
     <bill></bill>
+    <el-button @click='create'>create</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
+  methods: {
+    send: function(val) {
+      this.$socket.send(data)
+    },
+    create: function() {
+      this.orderChannel = this.$cable.subscriptions.create(
+        { channel: 'OrderChannel'},
+        { received (data) { console.log(data) } }
+      )
     }
-  }
+  },
 }
 </script>
 
