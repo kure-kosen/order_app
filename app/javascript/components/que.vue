@@ -53,12 +53,28 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
+    },
+    addData: function(data) {
+      console.log(data)
+      this.tableData.push(data['customer'])
+      console.log(this.tableData)
     }
   },
   mounted: function() {
     this.axios.get('http://localhost:5000/customers').then((response) => {
       this.tableData = response.data
     })
+  },
+  created: function() {
+    var that = this
+    this.orderChannel = this.$cable.subscriptions.create(
+      { channel: 'OrderChannel' },
+      {
+        received (data) { 
+          that.addData(data)
+        }
+      }
+    )
   }
 }
 </script>

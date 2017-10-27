@@ -19,7 +19,6 @@
       total: {{ total }}
     </div>
     <el-button @click="submit" :disabled="submitDisabled">submit</el-button>
-    <el-button @click="create">create</el-button>
     <que></que>
   </div>
 </template>
@@ -72,14 +71,9 @@ export default {
         console.log(response.data)
       })
     },
-    create: function() {
-      this.orderChannel = this.$cable.subscriptions.create(
-        { channel: 'OrderChannel'},
-        { received (data) { console.log(data) } }
-      )
-    }
   },
 }
+
 </script>
 
 <style scoped>
