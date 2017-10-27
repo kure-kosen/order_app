@@ -13,6 +13,7 @@
     </ul>
     <bill></bill>
     <el-button @click='create'>create</el-button>
+    <que></que>
   </div>
 </template>
 
