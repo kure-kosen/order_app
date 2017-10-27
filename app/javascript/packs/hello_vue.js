@@ -10,6 +10,8 @@ import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-default/index.css'
 import ActionCable from 'actioncable'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import App from '../app.vue'
 import Item from '../components/item.vue'
 import Bill from '../components/bill.vue'
@@ -19,6 +21,7 @@ const cable = ActionCable.createConsumer('ws:localhost:5000/cable')
 Vue.prototype.$cable = cable
 
 Vue.use(ElementUI, {locale})
+Vue.use(VueAxios, axios)
 Vue.component('item', Item)
 Vue.component('bill', Bill)
 Vue.component('que', Que)
