@@ -13,7 +13,6 @@ import ActionCable from 'actioncable'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from '../app.vue'
-import Item from '../components/item.vue'
 import Bill from '../components/bill.vue'
 import Que from '../components/que.vue'
 const cable = ActionCable.createConsumer('ws:localhost:5000/cable')
@@ -22,7 +21,6 @@ Vue.prototype.$cable = cable
 
 Vue.use(ElementUI, {locale})
 Vue.use(VueAxios, axios)
-Vue.component('item', Item)
 Vue.component('bill', Bill)
 Vue.component('que', Que)
 

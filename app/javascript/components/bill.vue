@@ -13,7 +13,6 @@
       <div>deposit: {{ charge }}</div>
     </div>
     <div>change: 99</div>
-    <el-button>submit</el-button>
   </div>
 </template>
 
