@@ -3,5 +3,5 @@ class Frankfurt < ApplicationRecord
 
   validates :ketchup,
             :mustard,
-            presence: true
+            inclusion: [true, false]
 end

@@ -1,5 +1,5 @@
 create_table :frankfurts do |t|
-  t.integer :order_id, null: false
+  t.integer :customer_id
   t.boolean :ketchup, null: false, default: false
   t.boolean :mustard, null: false, default: false
 
