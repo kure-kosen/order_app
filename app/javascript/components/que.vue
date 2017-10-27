@@ -21,8 +21,8 @@
       </template>
     </el-table-column>
     <el-table-column
-                label="Time"
-                width="180">
+      label="Time"
+      width="180">
       <template slot-scope="scope">
         <el-icon name="time"></el-icon>
         <span style="margin-left: 10px"> {{ scope.row.created_at }}
@@ -32,9 +32,9 @@
     <el-table-column width="100">
       <template slot-scope="scope">
         <el-button
-                size="small"
-                type="success"
-                @click="handleEdit(scope.$index, scope.row)">Done</el-button>
+          size="small"
+          type="success"
+          @click="done(scope.$index, scope.row)">Done</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -48,16 +48,15 @@ export default {
     }
   },
   methods: {
-    handleEdit(index, row) {
-      console.log(index, row);
-    },
-    handleDelete(index, row) {
-      console.log(index, row);
+    done(index, row) {
+      this.tableData.splice(index, 1)
+      this.axios.post('http://localhost:5000/customers/' + row.id + '/done', {
+      }).then((response) => {
+        console.log(response.data)
+      })
     },
     addData: function(data) {
-      console.log(data)
       this.tableData.push(data['customer'])
-      console.log(this.tableData)
     }
   },
   mounted: function() {

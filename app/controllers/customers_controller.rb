@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: %i[done]
 
   def index
-    @customers = Customer.all
+    @customers = Customer.where(done: false)
 
     render json: @customers
   end
