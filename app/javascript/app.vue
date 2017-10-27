@@ -13,6 +13,7 @@
     </ul>
     <bill></bill>
     <el-button @click='create'>create</el-button>
+    <el-button @click='get'>get</el-button>
     <que></que>
   </div>
 </template>
@@ -20,6 +21,11 @@
 <script>
 export default {
   methods: {
+    get: function() {
+      this.axios.get('http://localhost:5000/customers').then((response) => {
+        console.log(response.data)
+      })
+    },
     send: function(val) {
       this.$socket.send(data)
     },
