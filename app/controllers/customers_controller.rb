@@ -11,6 +11,13 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
+      params = {
+        id: @customer.id,
+        done: @customer.done,
+        created_at: @customer.created_at,
+        frankfurts: @customer.frankfurts
+      }
+      ActionCable.server.broadcast 'order_channel', customer: params
       render json: @customer, status: :created
     else
       render @customer.errors
