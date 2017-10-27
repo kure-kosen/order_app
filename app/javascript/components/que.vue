@@ -6,7 +6,7 @@
     <el-table-column
       label="Order"
       width="180">
-      <template scope="scope">
+      <template slot-scope="scope">
         <el-tag
 	  type="warning"
 	>hoge</el-tag>
@@ -15,14 +15,14 @@
     <el-table-column
       label="Time"
       width="180">
-      <template scope="scope">
+      <template slot-scope="scope">
         <el-icon name="time"></el-icon>
         <span style="margin-left: 10px">55:11</span>
       </template>      
     </el-table-column>
     <el-table-column
       label="Operation">
-      <template scope="scope">
+      <template slot-scope="scope">
         <el-button
           size="small"
 	  type="success"
