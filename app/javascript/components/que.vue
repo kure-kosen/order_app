@@ -10,7 +10,7 @@
           :data="scope.row.frankfurts"
           :show-header=false
           style="width: 100%">
-          <el-table-column>
+          <el-table-column align="center">
             <template slot-scope="scope">
               <el-tag v-if="scope.row.ketchup" type="danger">ketchup</el-tag>
               <el-tag v-if="scope.row.mustard" type="warning">mustard</el-tag>
