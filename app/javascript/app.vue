@@ -14,10 +14,12 @@
         both<el-input-number v-model="both" :min="0"></el-input-number> $ 100
       </li>
     </ul>
-    <bill></bill>
-    <el-button @click="submit">submit</el-button>
+    <!-- <bill :total="total"></bill> -->
+    <div>
+      total: {{ total }}
+    </div>
+    <el-button @click="submit" :disabled="submitDisabled">submit</el-button>
     <el-button @click="create">create</el-button>
-    <el-button @click="get">get</el-button>
     <que></que>
   </div>
 </template>
@@ -29,8 +31,22 @@ export default {
       none: 0,
       ketchup: 0,
       mustard: 0,
-      both: 0
+      both: 0,
+      price: {
+        none: 100,
+        ketchup: 100,
+        mustard: 100,
+        both: 100
+      },
     }
+  },
+  computed: {
+    submitDisabled: function() {
+      return !(this.none || this.ketchup || this.mustard || this.both)
+    },
+    total: function() {
+      return this.none * this.price.none + this.ketchup * this.price.ketchup + this.mustard * this.price.mustard + this.both * this.price.both
+    },
   },
   methods: {
     submit: function() {
@@ -39,13 +55,13 @@ export default {
       for (step = 0; step < this.none; step++) {
         frankfurts.push({ketchup: false, mustard: false})
       }
-      for (step = 0; step < this.none; step++) {
+      for (step = 0; step < this.ketchup; step++) {
         frankfurts.push({ketchup: true, mustard: false})
       }
-      for (step = 0; step < this.none; step++) {
+      for (step = 0; step < this.mustard; step++) {
         frankfurts.push({ketchup: false, mustard: true})
       }
-      for (step = 0; step < this.none; step++) {
+      for (step = 0; step < this.both; step++) {
         frankfurts.push({ketchup: true, mustard: true})
       }
 
@@ -55,14 +71,6 @@ export default {
       }).then((response) => {
         console.log(response.data)
       })
-    },
-    get: function() {
-      this.axios.get('http://localhost:5000/customers').then((response) => {
-        console.log(response.data)
-      })
-    },
-    send: function(val) {
-      this.$socket.send(data)
     },
     create: function() {
       this.orderChannel = this.$cable.subscriptions.create(
