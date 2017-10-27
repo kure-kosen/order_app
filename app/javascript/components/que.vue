@@ -14,6 +14,7 @@
             <template slot-scope="scope">
               <el-tag v-if="scope.row.ketchup" type="danger">ketchup</el-tag>
               <el-tag v-if="scope.row.mustard" type="warning">mustard</el-tag>
+              <el-tag v-if="!(scope.row.ketchup || scope.row.mustard)" type="info">none</el-tag>
             </template>
           </el-table-column>
         </el-table>
