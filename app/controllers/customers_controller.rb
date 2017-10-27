@@ -10,13 +10,13 @@ class CustomersController < ApplicationController
     if @customer.save
       render json: @customer, status: :created
     else
-      render_errors @customer
+      render @customer.errors
     end
   end
 
   private
 
   def customer_params
-    params.require(:customer).permit(frankfurt_attributes: [:ketchup, :mustard])
+    params.require(:customer).permit(frankfurts_attributes: [:ketchup, :mustard])
   end
 end
