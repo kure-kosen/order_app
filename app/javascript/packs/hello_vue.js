@@ -9,9 +9,13 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-default/index.css'
+import ActionCable from 'actioncable'
 import App from '../app.vue'
 import Item from '../components/item.vue'
 import Bill from '../components/bill.vue'
+const cable = ActionCable.createConsumer('ws:localhost:5000/cable')
+
+Vue.prototype.$cable = cable
 
 Vue.use(ElementUI, {locale})
 Vue.component('item', Item)
