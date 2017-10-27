@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :set_customer, only: %i[done]
+
   def show
     @customers = Customer.all
     ActionCable.server.broadcast 'order_channel', message: 'created'
@@ -14,7 +16,20 @@ class CustomersController < ApplicationController
     end
   end
 
+  def done
+    if @customer.done
+      handle_400 error_details: ['すでに完了済みです']
+    else
+      @customer.done = true
+      render json: @customer, status: :ok
+    end
+  end
+
   private
+
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
 
   def customer_params
     params.require(:customer).permit(frankfurts_attributes: [:ketchup, :mustard])

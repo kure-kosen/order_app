@@ -1,5 +1,5 @@
 class CustomerSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :done
 
   has_many :frankfurts
 end
